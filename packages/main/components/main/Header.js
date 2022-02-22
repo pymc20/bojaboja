@@ -1,3 +1,4 @@
+// @flow
 import * as React from "react";
 import Link from "next/link"
 import styles from "styled-components"
@@ -5,11 +6,10 @@ import styles from "styled-components"
 
 const Header = styles.header`{
     height: 100px
+    width: 50px
 }`
 
-
-// @flow
-const HeaderWrapper = (): React.ReactElement => {
+const HeaderWrapper = (): React.Node => {
     return (
         <Header>
             <nav>

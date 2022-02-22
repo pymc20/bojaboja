@@ -1,12 +1,19 @@
 {
   "name": "bojaboja",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/react", "**/styled-component", "**/next"]
+  },
   "version": "1.0.0",
   "author": "bym <pymc20@naver.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "yarn workspace main dev",
+    "build": "yarn workspace main build",
+    "start": "yarn workspace main start",
+    "lint": "yarn workspace main lint"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.3",
     "@babel/core": "^7.17.5",

@@ -1,7 +1,7 @@
+// @flow
 import * as React from "react";
 
-// @flow
-const Main = (): React.ReactElement => {
+const Main = (): React.Node => {
     return (
         <main>
             <section></section>

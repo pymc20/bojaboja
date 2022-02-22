@@ -1,11 +1,11 @@
+/* @flow */
 import Head from 'next/head'
-import React from "react";
-import Footer from "components/lib/main/Footer";
-import Main from "components/lib/main/Main";
-import Header from "components/lib/main/Header";
+import * as React from "react";
+import Footer from "../components/main/Footer";
+import Main from "../components/main/Main";
+import Header from "../components/main/Header";
 
-
-const Home = () => {
+const Home = (): React.Node => {
   return (
     <>
       <Head>
@@ -17,7 +17,10 @@ const Home = () => {
       </Head>
       <Header/>
       <Main/>
-      <Footer/>
+      <Footer props={{
+          address: "한국",
+          copyright: "Copyright © 2022 bojaboja. All rights reserved."
+      }} />
     </>
   )
 }
