@@ -1,9 +1,9 @@
 /* @flow */
 import Head from 'next/head'
 import * as React from "react";
-import Footer from "../components/main/Footer";
-import Main from "../components/main/Main";
-import Header from "../components/main/Header";
+import Footer from "@main/Footer";
+import Main from "@main/Main";
+import Header from "@main/Header";
 
 const Home = (): React.Node => {
   return (

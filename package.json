@@ -2,8 +2,15 @@
   "name": "bojaboja",
   "private": true,
   "workspaces": {
-    "packages": ["packages/*"],
-    "nohoist": ["**/react", "**/styled-component", "**/next"]
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/react",
+      "**/styled-component",
+      "**/next",
+      "**/sqlite3"
+    ]
   },
   "version": "1.0.0",
   "author": "bym <pymc20@naver.com>",
@@ -11,15 +18,13 @@
   "scripts": {
     "dev": "yarn workspace main dev",
     "build": "yarn workspace main build",
-    "start": "yarn workspace main start",
-    "lint": "yarn workspace main lint"
+    "start": "yarn workspace main start"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.3",
     "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
     "@babel/preset-flow": "^7.16.7",
-    "@babel/preset-react": "^7.16.7",
+    "babel-plugin-styled-components": "^2.0.3",
     "flow-bin": "^0.172.0"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@main/*": ["components/main/*"],
+      "@db/*": ["public/db/*"]
+    }
+  }
+}

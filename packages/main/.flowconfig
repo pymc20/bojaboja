@@ -7,5 +7,5 @@
 [lints]
 
 [options]
-
+module.name_mapper='@main' -> 'components/main'
 [strict]
