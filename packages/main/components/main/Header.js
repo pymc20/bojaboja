@@ -7,48 +7,89 @@ import styles from "styled-components";
 const Header = styles.header`{
     display: flex;
     height: 100px;
-    padding: 16px;
+    padding: 16px 48px;
+    background: #000;
+    color: #fff;
 }`;
 
 const SearchBar = styles.div`{
     display: flex;
     width: 15%;
+    border-bottom: solid 1px;
 }`
 
-const Logo = styles.div`{
-    width: 68px;
-    padding: 8px;
+const SearchButton = styles.button`{
+    cursor: pointer;
+    align-self: center;
+    border: none;
+    outline: none;
+    width: 42px;
+    height: 42px;
+    background-image: url('/img/search.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
 }`
 
 const Nav = styles.nav`{
     width: 80%;
+    padding: 0 40px;
+    font-size: 24px;
 }`
 
 const Menu = styles.ul`{
     list-style:none;
     margin:0;
     padding:0;
+    display: flex;
+    height: 100%;
+    align-items: center;
 }`
 
 const MenuItem = styles.li`{
     margin: 0 0 0 0;
     padding: 16px;
     border : 0;
-    float: left;
+    cursor: pointer;
 }`
 
 const Search = styles.input`{
-    background-image: url('/img/search.png');
-    background-size: contain;
-    background-repeat:no-repeat;
-    padding: 0 0 0 40px;
+    background: #000;
     width: 100%;
     border: none;
-    border-bottom: solid 1px;
     font-size: 24px;
+    color: #fff;
     &:focus {
         outline: none;
-        border-bottom: solid 1px;
+    }
+}`
+
+const DropDown = styles.div`{
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    color: #fff;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    &:hover > div {
+        display: flex;
+    }
+}`
+
+const DropDownContent = styles.div`{
+    top: 60px;
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    background-color: #000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    & > a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
     }
 }`
 
@@ -57,6 +98,7 @@ const HeaderWrapper = (): React.Node => {
         <Header>
             <SearchBar>
                 <Search />
+                <SearchButton />
             </SearchBar>
             <Nav>
                 <Menu>
@@ -74,10 +116,14 @@ const HeaderWrapper = (): React.Node => {
                     </Link>
                 </Menu>
             </Nav>
-
-            <Link href="">
-                <span>프로필</span>
-            </Link>
+            <DropDown>
+                <Image src="/img/avatar.svg" width="50" height="50"/>
+                <DropDownContent>
+                    <a>테스트</a>
+                    <a>테스트2</a>
+                    <a>테스트3</a>
+                </DropDownContent>
+            </DropDown>
         </Header>
     );
 };
