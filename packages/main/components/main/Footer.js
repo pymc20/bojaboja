@@ -1,19 +1,25 @@
 // @flow
 import * as React from "react";
+import styles from "styled-components";
 
 export type FooterValue = {
     copyright: string,
     address: string
 }
 
-const Footer = ({props}: { props: FooterValue } ): React.Node => {
+const Footer = styles.footer`{
+    background: #000;
+    color: #fff;
+}`
+
+const FooterWraaper = ({props}: { props: FooterValue }): React.Node => {
 
     return (
-        <footer>
+        <Footer>
             <p>{props.copyright}</p>
             <address>{props.address}</address>
-        </footer>
+        </Footer>
     )
 }
 
-export default Footer
+export default FooterWraaper
