@@ -10,6 +10,11 @@ export type FooterValue = {
 const Footer = styles.footer`{
     background: #000;
     color: #fff;
+    height: 100px;
+    padding: 16px 48px;
+    & > p {
+        margin: 16px 0;
+    }
 }`
 
 const FooterWraaper = ({props}: { props: FooterValue }): React.Node => {

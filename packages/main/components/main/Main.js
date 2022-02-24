@@ -54,21 +54,27 @@ const MainWrapper = (): React.Node => {
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
+                <VideoTitle>인기 프로그램</VideoTitle>
                 <VideoRow>
-                    <VideoTitle>인기 프로그램</VideoTitle>
-                    <video/>
+                    <VideoItem src="/video/video1.mp4" width="300" height="400"
+                               onMouseEnter={videoIn}
+                               onMouseLeave={videoOut}/>
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
+                <VideoTitle>*** 님이 좋아할만한 콘텐츠</VideoTitle>
                 <VideoRow>
-                    <VideoTitle>*** 님이 좋아할만한 콘텐츠</VideoTitle>
-                    <video/>
+                    <VideoItem src="/video/video1.mp4" width="300" height="400"
+                               onMouseEnter={videoIn}
+                               onMouseLeave={videoOut}/>
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
+                <VideoTitle>인기 급상승 콘텐츠</VideoTitle>
                 <VideoRow>
-                    <VideoTitle>인기 급상승 콘텐츠</VideoTitle>
-                    <video/>
+                    <VideoItem src="/video/video1.mp4" width="300" height="400"
+                               onMouseEnter={videoIn}
+                               onMouseLeave={videoOut}/>
                 </VideoRow>
             </VideoWrapper>
         </Main>

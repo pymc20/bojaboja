@@ -119,9 +119,9 @@ const HeaderWrapper = (): React.Node => {
             <DropDown>
                 <Image src="/img/avatar.svg" width="50" height="50"/>
                 <DropDownContent>
-                    <a>테스트</a>
-                    <a>테스트2</a>
-                    <a>테스트3</a>
+                    <a>프로필 설정</a>
+                    <a>계정</a>
+                    <a>로그아웃</a>
                 </DropDownContent>
             </DropDown>
         </Header>
