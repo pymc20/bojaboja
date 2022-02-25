@@ -10,7 +10,7 @@ export type FooterValue = {
 const Footer = styles.footer`{
     background: #000;
     color: #fff;
-    height: 100px;
+    height: 6.5rem;
     padding: 16px 48px;
     & > p {
         margin: 16px 0;

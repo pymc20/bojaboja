@@ -1,7 +1,6 @@
 /* @flow */
 import Head from 'next/head'
 import * as React from "react";
-import Footer from "@main/Footer";
 import Main from "@main/Main";
 import Header from "@main/Header";
 
@@ -17,10 +16,7 @@ const Home = (): React.Node => {
       </Head>
       <Header/>
       <Main/>
-      <Footer props={{
-          address: "한국",
-          copyright: "Copyright © 2022 bojaboja. All rights reserved."
-      }} />
+
     </>
   )
 }

@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "styled-components";
 
 const Main = styles.main`{
-    background: #000;
+
 }`
 
 const VideoWrapper = styles.section`{
@@ -12,19 +12,27 @@ const VideoWrapper = styles.section`{
 
 const VideoRow = styles.div`{
     display: flex;
-    overflow: hidden;
+}`
+
+const VideoItemWrapper = styles.div`{
+    margin-right: 24px;
+    &:nth-child(1):hover {
+        transform-origin: 0 100%;
+        transform: scale(1.5);
+    }
+    &:nth-child(n+2):hover {
+        transform-origin: 50% 100%;
+        transform: scale(1.5);
+    }
 }`
 
 const VideoItem = styles.video`{
-    margin: 24px;
-    &:hover {
-        width: 800px;
-    }
+    object-fit: cover;
 }`
 
 const VideoTitle = styles.div`{
     font-size: 28px;
-    color: #fff;
+    color: #000;
 }`
 
 const MainSlider = styles.section`{
@@ -39,7 +47,7 @@ const MainWrapper = (): React.Node => {
     }
 
     const videoOut = (e) => {
-        e.target.load()
+        e.target.currentTime = 0
         e.target.pause()
     }
 
@@ -48,33 +56,121 @@ const MainWrapper = (): React.Node => {
             <VideoWrapper>
                 <VideoTitle>*** 님이 시청 중인 콘텐츠</VideoTitle>
                 <VideoRow>
-                    <VideoItem src="/video/video1.mp4" width="300" height="400"
-                               onMouseEnter={videoIn}
-                               onMouseLeave={videoOut}/>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
                 <VideoTitle>인기 프로그램</VideoTitle>
                 <VideoRow>
-                    <VideoItem src="/video/video1.mp4" width="300" height="400"
-                               onMouseEnter={videoIn}
-                               onMouseLeave={videoOut}/>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
                 <VideoTitle>*** 님이 좋아할만한 콘텐츠</VideoTitle>
                 <VideoRow>
-                    <VideoItem src="/video/video1.mp4" width="300" height="400"
-                               onMouseEnter={videoIn}
-                               onMouseLeave={videoOut}/>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
                 </VideoRow>
             </VideoWrapper>
             <VideoWrapper>
                 <VideoTitle>인기 급상승 콘텐츠</VideoTitle>
                 <VideoRow>
-                    <VideoItem src="/video/video1.mp4" width="300" height="400"
-                               onMouseEnter={videoIn}
-                               onMouseLeave={videoOut}/>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
+                    <VideoItemWrapper>
+                        <VideoItem src="/video/video1.mp4"
+                                   onMouseEnter={videoIn}
+                                   onMouseLeave={videoOut}/>
+                    </VideoItemWrapper>
                 </VideoRow>
             </VideoWrapper>
         </Main>
