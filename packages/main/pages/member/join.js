@@ -1,6 +1,9 @@
 /* @flow */
 import * as React from "react";
 import styles from "styled-components"
+import aes from 'crypto-js/aes';
+import enc from 'crypto-js/enc-utf8';
+import { useRouter } from "next/router"
 
 const Form = styles.div`{
     display: flex;
@@ -29,7 +32,7 @@ const Password = styles.input`{
     max-width: 35rem;
     height: 5.2rem;
     max-height: 5.2rem;
-    margin: 1rem 0;
+    margin-top: 1rem;
     border: solid;
     font-size: 24px;
     padding: 16px;
@@ -47,6 +50,7 @@ const LoginButton = styles.button`{
 }`
 
 const Login = (): React.Node => {
+    const router = useRouter()
     const [formData, setFormData] = React.useState({});
 
     const changeFormData = (e) => {
@@ -58,13 +62,23 @@ const Login = (): React.Node => {
         })
     }
 
+    const join = async () => {
+        const joinData = aes.encrypt(JSON.stringify(formData), process.env.JOIN_KEY).toString()
+        const bytes = aes.decrypt(joinData, process.env.JOIN_KEY)
+        console.log(joinData)
+        console.log(JSON.parse(bytes.toString(enc)))
+
+        // await router.push("/member/login")
+    }
+
     return (
         <>
             <Form>
-                <FormTitle>로그인</FormTitle>
+                <FormTitle>회원가입</FormTitle>
                 <Id name="id" onChange={changeFormData} placeholder="아이디"/>
                 <Password name="password" onChange={changeFormData} placeholder="비밀번호" type="password"/>
-                <LoginButton>로그인</LoginButton>
+                <Password name="passwordCheck" onChange={changeFormData} placeholder="비밀번호 확인" type="password"/>
+                <LoginButton onClick={join}>가입하기</LoginButton>
             </Form>
         </>
     )

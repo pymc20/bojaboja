@@ -9,7 +9,8 @@
       "**/react",
       "**/styled-component",
       "**/next",
-      "**/sqlite3"
+      "**/sqlite3",
+      "**/crypto-js"
     ]
   },
   "version": "1.0.0",
