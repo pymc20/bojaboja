@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@main/*": ["components/main/*"],
-      "@db/*": ["public/db/*"]
+      "@db/*": ["public/db/*"],
+      "@mobx/store/*": ["mobx/store/*"]
     }
   }
 }

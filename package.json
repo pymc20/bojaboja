@@ -10,7 +10,9 @@
       "**/styled-component",
       "**/next",
       "**/sqlite3",
-      "**/crypto-js"
+      "**/crypto-js",
+      "**/mobx",
+      "**/mobx-react"
     ]
   },
   "version": "1.0.0",
@@ -25,6 +27,7 @@
     "@babel/cli": "^7.17.3",
     "@babel/core": "^7.17.5",
     "@babel/preset-flow": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
     "babel-plugin-styled-components": "^2.0.3",
     "flow-bin": "^0.172.0"
   }

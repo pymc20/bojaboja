@@ -1,6 +1,8 @@
 import '../public/styles/globals.css'
 import Head from "next/head";
 import Footer from "@main/Footer";
+import {Provider} from "mobx-react"
+import RootStore from "@mobx/store/Root"
 
 const MyApp = ({Component, pageProps}) => {
     return (
@@ -13,7 +15,9 @@ const MyApp = ({Component, pageProps}) => {
                       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
                 <meta charSet="utf-8"/>
             </Head>
-            <Component {...pageProps} />
+            <Provider store={RootStore}>
+                <Component {...pageProps} />
+            </Provider>
             <Footer props={{
                 address: "한국",
                 copyright: "Copyright © 2022 bojaboja. All rights reserved."

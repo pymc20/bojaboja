@@ -3,6 +3,8 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "styled-components";
+import RootStore from "@mobx/store/Root"
+import {observer} from "mobx-react";
 
 const Header = styles.header`{
     display: flex;
@@ -93,7 +95,7 @@ const DropDownContent = styles.div`{
     }
 }`
 
-const HeaderWrapper = (): React.Node => {
+const HeaderWrapper = observer(() => {
     return (
         <Header>
             <SearchBar>
@@ -119,13 +121,16 @@ const HeaderWrapper = (): React.Node => {
             <DropDown>
                 <Image src="/img/avatar.svg" width="50" height="50"/>
                 <DropDownContent>
-                    <a>프로필 설정</a>
+                    <a onClick={() => {
+                        RootStore.increment()
+                    }}>프로필 설정</a>
                     <a>계정</a>
                     <a>로그아웃</a>
+                    <a>{RootStore.test}</a>
                 </DropDownContent>
             </DropDown>
         </Header>
     );
-};
+});
 
 export default HeaderWrapper;

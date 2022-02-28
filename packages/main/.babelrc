@@ -6,7 +6,17 @@
   "plugins": [
     [
       "babel-plugin-styled-components",
-      { "fileName": true, "displayName": false, "pure": true }
+      {
+        "fileName": true,
+        "displayName": false,
+        "pure": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties"
     ]
-  ]
+  ],
+  "assumptions": {
+    "setPublicClassFields": false
+  }
 }
