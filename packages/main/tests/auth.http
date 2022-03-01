@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/auth
+Content-Type: application/json
+
+{
+  "joinData": "U2FsdGVkX1/mzSQIs+9q+yefh86bKJjW726L2+bWCyhMgvP951ewpqRIq6p69nkPFN/+Ht+o/QXM3MCQfy7NyhjLHdwd2mkjbiRhmbUEPRc="
+}
+
+###

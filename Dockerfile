@@ -11,7 +11,7 @@ FROM node:16-alpine
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV JOIN_KEY ""
+ENV SECRET_KEY ""
 ENV PORT 3000
 
 RUN addgroup --system --gid 1001 nodejs

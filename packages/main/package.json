@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "crypto-js": "^4.1.1",
     "mobx": "^6.4.2",
     "mobx-react": "^7.3.0",

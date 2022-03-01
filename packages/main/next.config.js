@@ -4,7 +4,7 @@ const nextConfig = {
     reactStrictMode: true,
     optimizeFonts: false,
     env: {
-        JOIN_KEY: process.env.JOIN_KEY
+        SECRET_KEY: process.env.SECRET_KEY
     },
     experimental: {
         outputStandalone: true,

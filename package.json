@@ -12,7 +12,8 @@
       "**/sqlite3",
       "**/crypto-js",
       "**/mobx",
-      "**/mobx-react"
+      "**/mobx-react",
+      "**/axios"
     ]
   },
   "version": "1.0.0",
