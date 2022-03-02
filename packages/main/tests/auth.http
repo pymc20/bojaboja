@@ -1,4 +1,12 @@
-POST http://localhost:3001/api/auth
+POST http://localhost:3001/api/auth/join
+Content-Type: application/json
+
+{
+  "joinData": "U2FsdGVkX1/mzSQIs+9q+yefh86bKJjW726L2+bWCyhMgvP951ewpqRIq6p69nkPFN/+Ht+o/QXM3MCQfy7NyhjLHdwd2mkjbiRhmbUEPRc="
+}
+
+###
+POST http://localhost:3001/api/auth/login
 Content-Type: application/json
 
 {
