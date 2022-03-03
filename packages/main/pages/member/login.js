@@ -1,6 +1,8 @@
 /* @flow */
 import * as React from "react";
 import styles from "styled-components"
+import axios from "axios";
+import aes from "crypto-js/aes";
 
 const Form = styles.div`{
     display: flex;
@@ -58,13 +60,25 @@ const Login = (): React.Node => {
         })
     }
 
+    const clickLogin = async () => {
+        const cryptoData = aes.encrypt(JSON.stringify(formData), process.env.SECRET_KEY).toString()
+        const res = await axios.post("/api/auth/login", {formData: cryptoData});
+        if (res.status === 200) {
+            localStorage.setItem("token", res.data.result)
+            document.cookie = `token=${res.data.result};expires=Fri, 31 Dec 9999 23:59:59 GMT`
+        } else {
+            alert("실패")
+        }
+    }
+
     return (
         <>
             <Form>
                 <FormTitle>로그인</FormTitle>
                 <Id name="id" onChange={changeFormData} placeholder="아이디"/>
-                <Password name="password" onChange={changeFormData} placeholder="비밀번호" type="password"/>
-                <LoginButton>로그인</LoginButton>
+                <Password name="password" onChange={changeFormData} placeholder="비밀번호"
+                          type="password"/>
+                <LoginButton onClick={clickLogin}>로그인</LoginButton>
             </Form>
         </>
     )

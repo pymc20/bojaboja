@@ -2,7 +2,6 @@
 import * as React from "react";
 import styles from "styled-components"
 import aes from 'crypto-js/aes';
-import enc from 'crypto-js/enc-utf8';
 import { useRouter } from "next/router"
 import axios from "axios";
 
@@ -65,7 +64,7 @@ const Login = (): React.Node => {
 
     const join = async () => {
         const joinData = aes.encrypt(JSON.stringify(formData), process.env.SECRET_KEY).toString()
-        await axios.post("api/auth", {joinData})
+        await axios.post("api/auth/join", {joinData})
         // await router.push("/member/login")
     }
 

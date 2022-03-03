@@ -2,21 +2,20 @@
 import {makeAutoObservable} from "mobx";
 
 class RootStore {
-    test: number = 0;
+    testNum: number = 0;
+    token: string = "";
 
     constructor() {
+        if(typeof window !== "undefined")
+            this.token = localStorage.getItem("token")
         makeAutoObservable(this);
     }
 
-    get test() {
-        this.test
-    }
-
     increment() {
-        this.test++
+        this.testNum++
     }
 }
 
-const store = new RootStore()
+const store: RootStore = new RootStore()
 
 export default store;

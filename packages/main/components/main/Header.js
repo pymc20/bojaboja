@@ -95,7 +95,7 @@ const DropDownContent = styles.div`{
     }
 }`
 
-const HeaderWrapper = observer(() => {
+const HeaderWrapper: any = observer(() => {
     return (
         <Header>
             <SearchBar>
@@ -126,7 +126,7 @@ const HeaderWrapper = observer(() => {
                     }}>프로필 설정</a>
                     <a>계정</a>
                     <a>로그아웃</a>
-                    <a>{RootStore.test}</a>
+                    <a>{RootStore.testNum}</a>
                 </DropDownContent>
             </DropDown>
         </Header>

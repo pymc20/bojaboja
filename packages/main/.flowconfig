@@ -7,5 +7,7 @@
 [lints]
 
 [options]
-
+module.name_mapper='@main' -> '<PROJECT_ROOT>/components/main'
+module.name_mapper='@mobx/store' -> '<PROJECT_ROOT>/mobx/store'
+module.name_mapper='sqlite' -> '<PROJECT_ROOT>/sqlite'
 [strict]
