@@ -5,6 +5,7 @@ import Image from "next/image";
 import styles from "styled-components";
 import RootStore from "@mobx/store/Root"
 import {observer} from "mobx-react";
+import Router from "next/router"
 
 const Header = styles.header`{
     display: flex;
@@ -125,7 +126,10 @@ const HeaderWrapper: any = observer(() => {
                         RootStore.increment()
                     }}>프로필 설정</a>
                     <a>계정</a>
-                    <a>로그아웃</a>
+                    <a onClick={async () => {
+                        localStorage.removeItem("token")
+                        await Router.push("/member/login")
+                    }}>로그아웃</a>
                     <a>{RootStore.testNum}</a>
                 </DropDownContent>
             </DropDown>

@@ -1,10 +1,25 @@
 import '../public/styles/globals.css'
-import Head from "next/head";
 import Footer from "@main/Footer";
 import {Provider} from "mobx-react"
 import RootStore from "@mobx/store/Root"
+import Head from "next/head";
+import {useEffect, useState} from "react";
+import {tokenVerify} from "../../crypto-util";
+import Router from "next/router"
 
 const MyApp = ({Component, pageProps}) => {
+    const [auth, setAuth] = useState(false)
+    if (typeof window !== "undefined" && !auth && localStorage.getItem("token")) {
+        const token = localStorage.getItem("token")
+        const authResult = tokenVerify(token, process.env.SECRET_KEY)
+        setAuth(authResult)
+    }
+    useEffect(() => {
+        if (!auth) {
+            Router.push("/member/login").then()
+        }
+    }, [auth])
+
     return (
         <>
             <Head>

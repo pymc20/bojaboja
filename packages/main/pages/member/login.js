@@ -3,6 +3,7 @@ import * as React from "react";
 import styles from "styled-components"
 import axios from "axios";
 import aes from "crypto-js/aes";
+import Router from "next/router"
 
 const Form = styles.div`{
     display: flex;
@@ -65,7 +66,7 @@ const Login = (): React.Node => {
         const res = await axios.post("/api/auth/login", {formData: cryptoData});
         if (res.status === 200) {
             localStorage.setItem("token", res.data.result)
-            document.cookie = `token=${res.data.result};expires=Fri, 31 Dec 9999 23:59:59 GMT`
+            await Router.push("/main")
         } else {
             alert("실패")
         }

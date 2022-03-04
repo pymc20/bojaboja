@@ -3,16 +3,17 @@ import {makeAutoObservable} from "mobx";
 
 class RootStore {
     testNum: number = 0;
-    token: string = "";
+    auth: boolean = false;
 
     constructor() {
-        if(typeof window !== "undefined")
-            this.token = localStorage.getItem("token")
         makeAutoObservable(this);
     }
 
     increment() {
         this.testNum++
+    }
+    updateAuth(auth: boolean) {
+        this.auth = auth
     }
 }
 
