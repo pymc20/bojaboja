@@ -3,7 +3,6 @@ import {makeAutoObservable} from "mobx";
 
 class RootStore {
     testNum: number = 0;
-    auth: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -11,9 +10,6 @@ class RootStore {
 
     increment() {
         this.testNum++
-    }
-    updateAuth(auth: boolean) {
-        this.auth = auth
     }
 }
 

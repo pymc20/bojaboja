@@ -4,7 +4,7 @@ import Head from 'next/head';
 import * as React from "react";
 import MainIndex from "./main";
 
-const Home = (props): React.Node => {
+const Home = (): React.Node => {
     return (
         <>
             <Head>
