@@ -1,13 +1,13 @@
 import '../public/styles/globals.css';
 import Footer from '@main/Footer';
-import { Provider } from 'mobx-react';
-import RootStore from '@mobx/store/Root';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactElement } from 'react';
 import { tokenVerify } from '../../crypto-util';
 import Router from 'next/router';
+import { AppProps } from 'next/app';
+import { RecoilRoot } from 'recoil';
 
-const MyApp = ({ Component, pageProps }) => {
+function MyApp({ Component, pageProps }: AppProps): ReactElement {
   const [auth, setAuth] = useState(false);
   if (typeof window !== 'undefined' && !auth && localStorage.getItem('token')) {
     const token = localStorage.getItem('token');
@@ -32,9 +32,9 @@ const MyApp = ({ Component, pageProps }) => {
         />
         <meta charSet="utf-8" />
       </Head>
-      <Provider store={RootStore}>
+      <RecoilRoot>
         <Component {...pageProps} />
-      </Provider>
+      </RecoilRoot>
       <Footer
         props={{
           address: '한국',
@@ -43,6 +43,6 @@ const MyApp = ({ Component, pageProps }) => {
       />
     </>
   );
-};
+}
 
 export default MyApp;

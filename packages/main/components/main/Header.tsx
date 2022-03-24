@@ -1,10 +1,10 @@
-import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from 'styled-components';
-import RootStore from '@mobx/store/Root';
-import { observer } from 'mobx-react';
 import Router from 'next/router';
+import { ReactElement } from 'react';
+import { useRecoilState } from 'recoil';
+import { countState } from '@atoms/Counter';
 
 const Header = styles.header`{
     display: flex;
@@ -95,7 +95,8 @@ const DropDownContent = styles.div`{
     }
 }`;
 
-const HeaderWrapper: any = observer(() => {
+function HeaderWrapper(): ReactElement {
+  const [count, setCount] = useRecoilState(countState);
   return (
     <Header>
       <SearchBar>
@@ -123,7 +124,7 @@ const HeaderWrapper: any = observer(() => {
         <DropDownContent>
           <a
             onClick={() => {
-              RootStore.increment();
+              setCount(count + 1);
             }}
           >
             프로필 설정
@@ -137,11 +138,11 @@ const HeaderWrapper: any = observer(() => {
           >
             로그아웃
           </a>
-          <a>{RootStore.testNum}</a>
+          <a>{count}</a>
         </DropDownContent>
       </DropDown>
     </Header>
   );
-});
+}
 
 export default HeaderWrapper;

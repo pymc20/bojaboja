@@ -3,7 +3,7 @@ import Head from 'next/head';
 import * as React from 'react';
 import MainIndex from './main';
 
-function Home(): React.ReactNode {
+function Home(): React.ReactElement {
   return (
     <>
       <Head>

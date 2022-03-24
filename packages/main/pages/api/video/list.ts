@@ -1,4 +1,4 @@
-import { dbAll } from 'sqlite';
+import { dbAll } from 'utils/sqlite';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

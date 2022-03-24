@@ -1,9 +1,8 @@
-/* @flow */
-import * as React from 'react';
+import { ReactElement, useState } from 'react';
 import styles from 'styled-components';
 import aes from 'crypto-js/aes';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import { post } from '../../utils/axios';
 
 const Form = styles.div`{
     display: flex;
@@ -49,9 +48,9 @@ const LoginButton = styles.button`{
     padding: 16px;
 }`;
 
-const Login = (): React.Node => {
+function Login(): ReactElement {
   const router = useRouter();
-  const [formData, setFormData] = React.useState({});
+  const [formData, setFormData] = useState({});
 
   const changeFormData = (e) => {
     const formKey = e.target.name;
@@ -66,7 +65,7 @@ const Login = (): React.Node => {
     const joinData = aes
       .encrypt(JSON.stringify(formData), process.env.SECRET_KEY)
       .toString();
-    await axios.post('api/auth/join', { joinData });
+    await post('/api/auth/join', { joinData });
     // await router.push("/member/login")
   };
 
@@ -91,6 +90,6 @@ const Login = (): React.Node => {
       </Form>
     </>
   );
-};
+}
 
 export default Login;

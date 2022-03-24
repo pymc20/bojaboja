@@ -14,8 +14,8 @@
       "@main/*": [
         "components/main/*"
       ],
-      "@mobx/*": [
-        "mobx/*"
+      "@atoms/*": [
+        "atoms/*"
       ]
     },
     "incremental": true,

@@ -1,4 +1,4 @@
-import { dbGet } from 'sqlite';
+import { dbGet } from 'utils/sqlite';
 import HmacSHA512 from 'crypto-js/hmac-sha512';
 import aes from 'crypto-js/aes';
 import enc from 'crypto-js/enc-utf8';

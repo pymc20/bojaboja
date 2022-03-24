@@ -16,13 +16,13 @@ const Footer = styles.footer`{
     }
 }`;
 
-const FooterWraaper = ({ props }: { props: FooterValue }): React.Node => {
+function FooterWrapper({ props }: { props: FooterValue }): React.ReactElement {
   return (
     <Footer>
       <p>{props.copyright}</p>
       <address>{props.address}</address>
     </Footer>
   );
-};
+}
 
-export default FooterWraaper;
+export default FooterWrapper;

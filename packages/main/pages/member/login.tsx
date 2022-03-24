@@ -1,9 +1,8 @@
-/* @flow */
-import * as React from 'react';
+import { useState, ReactElement } from 'react';
 import styles from 'styled-components';
-import axios from 'axios';
 import aes from 'crypto-js/aes';
 import Router from 'next/router';
+import { post } from '../../utils/axios';
 
 const Form = styles.div`{
     display: flex;
@@ -49,8 +48,8 @@ const LoginButton = styles.button`{
     padding: 16px;
 }`;
 
-const Login = (): React.Node => {
-  const [formData, setFormData] = React.useState({});
+const Login = (): ReactElement => {
+  const [formData, setFormData] = useState({});
 
   const changeFormData = (e) => {
     const formKey = e.target.name;
@@ -65,10 +64,12 @@ const Login = (): React.Node => {
     const cryptoData = aes
       .encrypt(JSON.stringify(formData), process.env.SECRET_KEY)
       .toString();
-    const res = await axios.post('/api/auth/login', { formData: cryptoData });
+    const res = await post('/api/auth/login', {
+      formData: cryptoData,
+    });
     if (res.status === 200) {
       localStorage.setItem('token', res.data.result);
-      await Router.push('/main');
+      await Router.push('/');
     } else {
       alert('실패');
     }
