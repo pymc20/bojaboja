@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <title>Boja Boja</title>
         <meta name="description" content="video platform" />
         <meta name="keyword" content="video, web, contents, movie" />
