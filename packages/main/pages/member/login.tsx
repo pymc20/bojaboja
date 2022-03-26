@@ -8,6 +8,8 @@ const Form = styles.div`{
     display: flex;
     flex-flow: column;
     align-items: center;
+    height: 85vh;
+    justify-content: center;
 }`;
 
 const FormTitle = styles.div`{
