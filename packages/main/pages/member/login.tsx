@@ -1,23 +1,28 @@
 import { useState, ReactElement } from 'react';
-import styles from 'styled-components';
+import styled from 'styled-components';
 import aes from 'crypto-js/aes';
 import Router from 'next/router';
 import { post } from '../../utils/axios';
 
-const Form = styles.div`{
+const Form = styled.div`
+   {
     display: flex;
     flex-flow: column;
     align-items: center;
     height: 85vh;
     justify-content: center;
-}`;
+  }
+`;
 
-const FormTitle = styles.div`{
+const FormTitle = styled.div`
+   {
     font-size: 48px;
     margin: 24px 0;
-}`;
+  }
+`;
 
-const Id = styles.input`{
+const Id = styled.input`
+   {
     width: 35rem;
     max-width: 35rem;
     height: 5.2rem;
@@ -26,9 +31,11 @@ const Id = styles.input`{
     font-size: 24px;
     padding: 16px;
     color: #000;
-}`;
+  }
+`;
 
-const Password = styles.input`{
+const Password = styled.input`
+   {
     width: 35rem;
     max-width: 35rem;
     height: 5.2rem;
@@ -37,9 +44,11 @@ const Password = styles.input`{
     border: solid;
     font-size: 24px;
     padding: 16px;
-}`;
+  }
+`;
 
-const LoginButton = styles.button`{
+const LoginButton = styled.button`
+   {
     width: 35rem;
     max-width: 35rem;
     height: 5.2rem;
@@ -48,7 +57,8 @@ const LoginButton = styles.button`{
     border: solid;
     font-size: 24px;
     padding: 16px;
-}`;
+  }
+`;
 
 const Login = (): ReactElement => {
   const [formData, setFormData] = useState({});

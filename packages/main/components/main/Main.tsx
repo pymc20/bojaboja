@@ -1,42 +1,41 @@
-import styles from 'styled-components';
+import styled from 'styled-components';
 import { ReactElement } from 'react';
 
-const Main = styles.main`{
+const Main = styled.main`
+  width: 100%;
+`;
 
-}`;
+const VideoWrapper = styled.section`
+  padding: 40px 96px;
+`;
 
-const VideoWrapper = styles.section`{
-    padding: 40px 96px;
-}`;
+const VideoRow = styled.div`
+  display: flex;
+  overflow: hidden;
+`;
 
-const VideoRow = styles.div`{
-    display: flex;
-}`;
+const VideoItemWrapper = styled.div`
+  margin-right: 24px;
+  &:nth-child(1):hover {
+    transform-origin: 0 100%;
+    transform: scale(1.5);
+  }
+  &:nth-child(n + 2):hover {
+    transform-origin: 50% 100%;
+    transform: scale(1.5);
+  }
+`;
 
-const VideoItemWrapper = styles.div`{
-    margin-right: 24px;
-    &:nth-child(1):hover {
-        transform-origin: 0 100%;
-        transform: scale(1.5);
-    }
-    &:nth-child(n+2):hover {
-        transform-origin: 50% 100%;
-        transform: scale(1.5);
-    }
-}`;
+const VideoItem = styled.video`
+  object-fit: cover;
+`;
 
-const VideoItem = styles.video`{
-    object-fit: cover;
-}`;
+const VideoTitle = styled.div`
+  font-size: 28px;
+  color: #000;
+`;
 
-const VideoTitle = styles.div`{
-    font-size: 28px;
-    color: #000;
-}`;
-
-const MainSlider = styles.section`{
-    
-}`;
+const MainSlider = styled.section``;
 
 function videoIn(e) {
   e.target.volume = 0;
