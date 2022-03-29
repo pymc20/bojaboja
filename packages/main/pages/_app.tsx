@@ -1,11 +1,11 @@
-import '../public/styles/globals.css';
-import Footer from '@main/Footer';
+import Footer from '@components/main/Footer';
 import Head from 'next/head';
 import { useEffect, useState, ReactElement } from 'react';
 import { tokenVerify } from '../../crypto-util';
 import Router from 'next/router';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
+import { GlobalReset } from '@components/GlobalReset';
 
 function MyApp({ Component, pageProps }: AppProps): ReactElement {
   const [auth, setAuth] = useState(false);
@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
 
   return (
     <>
+      <GlobalReset font={'font/NotoSansKR-Regular.otf'} />
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>Boja Boja</title>

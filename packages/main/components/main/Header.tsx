@@ -20,14 +20,18 @@ const SearchBar = styled.div`
   border-bottom: solid 1px;
 `;
 
-const SearchButton = styled.button`
+interface SearchButtonProps {
+  img: string;
+}
+
+const SearchButton = styled.button<SearchButtonProps>`
   cursor: pointer;
   align-self: center;
   border: none;
   outline: none;
   width: 42px;
   height: 42px;
-  background-image: url('/img/search.svg');
+  background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
@@ -103,7 +107,7 @@ function HeaderWrapper(): ReactElement {
     <Header>
       <SearchBar>
         <Search />
-        <SearchButton />
+        <SearchButton img={'/img/search.svg'} />
       </SearchBar>
       <Nav>
         <Menu>
