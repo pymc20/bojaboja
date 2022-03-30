@@ -10,7 +10,7 @@ const Header = styled.header`
   display: flex;
   height: 6.5rem;
   padding: 16px 48px;
-  background: #000;
+  background: #363636;
   color: #fff;
 `;
 
@@ -60,7 +60,7 @@ const MenuItem = styled.li`
 `;
 
 const Search = styled.input`
-  background: #000;
+  background: #363636;
   width: 100%;
   border: none;
   font-size: 24px;
@@ -89,7 +89,7 @@ const DropDownContent = styled.div`
     flex-direction: column;
     display: none;
     position: absolute;
-    background-color: #000;
+    background-color: #363636;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;

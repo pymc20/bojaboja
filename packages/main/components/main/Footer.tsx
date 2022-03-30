@@ -7,7 +7,7 @@ export type FooterValue = {
 };
 
 const Footer = styled.footer`
-  background: #000;
+  background: #363636;
   color: #fff;
   height: 6.5rem;
   padding: 16px 48px;

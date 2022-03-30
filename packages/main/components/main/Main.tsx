@@ -1,41 +1,71 @@
 import styled from 'styled-components';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
+import Image from 'next/image';
 
 const Main = styled.main`
   width: 100%;
+  overflow: hidden;
 `;
 
 const VideoWrapper = styled.section`
   padding: 40px 96px;
 `;
 
-const VideoRow = styled.div`
+const VideoRow = styled.div<VideoItemProps>`
   display: flex;
-  overflow: hidden;
+  margin-top: 16px;
+  position: relative;
+  transition: 0.5s;
+  left: ${(props) => props.page * -1736 + 'px'};
 `;
 
-const VideoItemWrapper = styled.div`
-  margin-right: 24px;
-  &:nth-child(1):hover {
+interface VideoItemProps {
+  page: number;
+}
+
+const VideoItem = styled.video<VideoItemProps>`
+  object-fit: cover;
+  margin-right: 8px;
+  width: 240px;
+  &:nth-child(${(props) => props.page * 7 + 1}):hover {
     transform-origin: 0 100%;
     transform: scale(1.5);
   }
-  &:nth-child(n + 2):hover {
+  &:nth-child(${(props) => 'n + ' + (2 + props.page * 7)}):nth-child(${(
+        props,
+      ) => '-n + ' + (6 + 7 * props.page)}):hover {
     transform-origin: 50% 100%;
     transform: scale(1.5);
   }
-`;
-
-const VideoItem = styled.video`
-  object-fit: cover;
+  &:nth-child(${(props) => props.page * 7 + 7}):hover {
+    transform-origin: 100% 100%;
+    transform: scale(1.5);
+  }
+  &:nth-child(7n + 2):nth-child(-7n + 13):hover {
+    -webkit-transform-origin: 50% 100%;
+    -ms-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+  }
 `;
 
 const VideoTitle = styled.div`
   font-size: 28px;
-  color: #000;
+  color: #363636;
 `;
 
-const MainSlider = styled.section``;
+const MainSlider = styled.div`
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  justify-content: flex-end;
+  position: relative;
+  left: 66px;
+  bottom: 90px;
+  z-index: 2;
+`;
 
 function videoIn(e) {
   e.target.volume = 0;
@@ -47,41 +77,45 @@ function videoOut(e) {
   e.target.pause();
 }
 
-function createVideoRow() {
-  const rowList = Array.from(Array(4), () => '/video/video1.mp4');
+function createVideoRow(page) {
+  const rowList = Array.from(Array(15), () => '/video/video1.mp4');
   return (
-    <VideoRow>
+    <VideoRow page={page}>
       {rowList.map((src, idx) => (
-        <VideoWrapper key={idx}>
-          <VideoItem
-            src={src}
-            onMouseEnter={videoIn}
-            onMouseLeave={videoOut}
-          ></VideoItem>
-        </VideoWrapper>
+        <VideoItem
+          page={page}
+          key={idx}
+          src={src}
+          onMouseEnter={videoIn}
+          onMouseLeave={videoOut}
+        ></VideoItem>
       ))}
     </VideoRow>
   );
 }
 
 function MainWrapper(): ReactElement {
+  const [page, setPage] = useState(0);
   return (
     <Main>
       <VideoWrapper>
         <VideoTitle>*** 님이 시청 중인 콘텐츠</VideoTitle>
-        {createVideoRow()}
+        {createVideoRow(page)}
+        <MainSlider onClick={() => setPage(page + 1)}>
+          <img src={'/img/arrow.svg'} width={50} height={50} />
+        </MainSlider>
       </VideoWrapper>
       <VideoWrapper>
         <VideoTitle>인기 프로그램</VideoTitle>
-        {createVideoRow()}
+        {createVideoRow(page)}
       </VideoWrapper>
       <VideoWrapper>
         <VideoTitle>*** 님이 좋아할만한 콘텐츠</VideoTitle>
-        {createVideoRow()}
+        {createVideoRow(page)}
       </VideoWrapper>
       <VideoWrapper>
         <VideoTitle>인기 급상승 콘텐츠</VideoTitle>
-        {createVideoRow()}
+        {createVideoRow(page)}
       </VideoWrapper>
     </Main>
   );

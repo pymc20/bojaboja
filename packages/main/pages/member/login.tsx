@@ -30,7 +30,7 @@ const Id = styled.input`
     border: solid;
     font-size: 24px;
     padding: 16px;
-    color: #000;
+    color: #363636;
   }
 `;
 
