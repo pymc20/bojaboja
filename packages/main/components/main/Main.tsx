@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ReactElement, useState } from 'react';
-import Image from 'next/image';
+import SliderWrapper from '@main/Slider';
 
 const Main = styled.main`
   width: 100%;
@@ -59,6 +59,9 @@ const VideoTitle = styled.div`
 const MainSlider = styled.div`
   display: flex;
   cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   justify-content: flex-end;
   position: relative;
@@ -98,13 +101,7 @@ function MainWrapper(): ReactElement {
   const [page, setPage] = useState(0);
   return (
     <Main>
-      <VideoWrapper>
-        <VideoTitle>*** 님이 시청 중인 콘텐츠</VideoTitle>
-        {createVideoRow(page)}
-        <MainSlider onClick={() => setPage(page + 1)}>
-          <img src={'/img/arrow.svg'} width={50} height={50} />
-        </MainSlider>
-      </VideoWrapper>
+      <SliderWrapper props={{ title: '*** 님이 시청 중인 콘텐츠' }} />
       <VideoWrapper>
         <VideoTitle>인기 프로그램</VideoTitle>
         {createVideoRow(page)}
