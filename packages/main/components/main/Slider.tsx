@@ -3,25 +3,25 @@ import styled from 'styled-components';
 import { MouseEventHandler, useState } from 'react';
 
 const Slider = styled.article`
-  padding: 40px 0px;
+  padding: 40px 0 0;
 `;
 
 const SliderArrow = styled.div`
-  display: flex;
+  display: inline-flex;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  justify-content: flex-end;
   position: relative;
-  left: 66px;
-  bottom: 90px;
+  left: 96%;
+  height: 163px;
+  bottom: 163px;
   z-index: 2;
 `;
 
 const SliderTitle = styled.article`
-  padding: 0px 60px;
+  padding: 0 60px;
   font-size: 28px;
   color: #363636;
 `;
@@ -30,21 +30,25 @@ interface RowProps {
   page: number;
   itemCount?: number;
   lastPage?: number;
+  transition?: string;
+  left?: string;
 }
 
 const Row = styled.div<RowProps>`
   display: flex;
+  height: 163px;
   margin-top: 16px;
-  transition: 0.5s;
+  transition: ${(props) => props.transition};
   transform: translateX(
     ${(props) => {
-      return props.page * -100 - 116.66666666666667 + '%';
+      if (props.left) return props.left;
+      return props.page * -100 - props.page * 116.66666666666667 + '%';
     }}
   );
 `;
 
 const SlideRow = styled.div`
-  padding: 0px 60px;
+  padding: 0 60px;
 `;
 
 const RowItem = styled.video<RowProps>`
@@ -70,15 +74,24 @@ const RowItem = styled.video<RowProps>`
         props,
       ) => -props.itemCount + 'n' + ' + 13'}):hover {
     -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
-    -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
   }
 `;
 
-function createRowItem(page: number, props: SliderWrapperProps) {
+const RightArrow = styled.img`
+  align-self: center;
+  width: 50px;
+  height: 50px;
+`;
+
+function createRowItem(
+  page: number,
+  transition: string,
+  left: string,
+  props: SliderWrapperProps,
+) {
   const { onMouseEnter, onMouseLeave, data } = props;
   const lastPage = data.length % 7 > 0 ? data.length / 7 : data.length / 7 - 1;
   const renderList = data.slice(page * 7, (page + 1) * 7);
@@ -94,15 +107,16 @@ function createRowItem(page: number, props: SliderWrapperProps) {
     renderList.push(...data.slice((page + 1) * 7, (page + 2) * 7));
   }
   return (
-    <Row page={page} lastPage={lastPage}>
+    <Row page={page} lastPage={lastPage} transition={transition} left={left}>
       {renderList.map((src, idx) => (
         <RowItem
           page={page}
           key={idx}
           src={src}
+          itemCount={6}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
-        ></RowItem>
+        />
       ))}
     </Row>
   );
@@ -125,23 +139,36 @@ function SliderWrapper({
   props: SliderWrapperProps;
 }): React.ReactElement {
   const [page, setPage] = useState(0);
+  const [transition, setTransition] = useState('0.5s');
+  const [left, setLeft] = useState('');
   props.data = Array.from(Array(14), () => '/video/video1.mp4');
 
   return (
     <Slider>
       {props.title && <SliderTitle>{props.title}</SliderTitle>}
-      <SlideRow>{createRowItem(page, props)}</SlideRow>
+      <SlideRow>{createRowItem(page, transition, left, props)}</SlideRow>
       <SliderArrow
         onClick={() => {
           const lastPage =
             props.data.length % 7 > 0
               ? props.data.length / 7
               : props.data.length / 7 - 1;
-          if (lastPage === page) setPage(0);
-          else setPage(page + 1);
+          if (lastPage === page + 1)
+            setTimeout(() => {
+              setTransition('0s');
+              setLeft('-116.66666666666667%');
+              setPage(0);
+            }, 500);
+          if (lastPage === page) {
+            setPage(0);
+          } else {
+            setPage(page + 1);
+            setTransition('0.5s');
+            setLeft('');
+          }
         }}
       >
-        <img src={'/img/arrow.svg'} width={50} height={50} />
+        <RightArrow src={'/img/arrow.svg'} />
       </SliderArrow>
     </Slider>
   );
