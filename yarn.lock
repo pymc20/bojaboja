@@ -787,19 +787,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react@*":
+"@types/react@*", "@types/react@^18.0.5":
   version "18.0.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.5.tgz#1a4d4b705ae6af5aed369dec22800b20f89f5301"
   integrity sha512-UPxNGInDCIKlfqBrm8LDXYWNfLHwIdisWcsH5GpMyGjhEDLFgTtlRBaoWuCua9HcyuE0rMkmAeZ3FXV1pYLIYQ==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^17.0.42":
-  version "17.0.44"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.44.tgz#c3714bd34dd551ab20b8015d9d0dbec812a51ec7"
-  integrity sha512-Ye0nlw09GeMp2Suh8qoOv0odfgCoowfM/9MG6WeRD60Gq9wS90bdkdRtYbRkNhXOpG4H+YXGvj4wOWhAC0LJ1g==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -917,9 +908,9 @@
     eslint-visitor-keys "^3.0.0"
 
 abab@^2.0.3, abab@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
-  integrity sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q==
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.6.tgz#41b80f2c871d19686216b82309231cfd3cb3d291"
+  integrity sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==
 
 abbrev@1:
   version "1.1.1"
@@ -1515,9 +1506,9 @@ ecdsa-sig-formatter@1.0.11:
     safe-buffer "^5.0.1"
 
 electron-to-chromium@^1.4.84:
-  version "1.4.107"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.107.tgz#564257014ab14033b4403a309c813123c58a3fb9"
-  integrity sha512-Huen6taaVrUrSy8o7mGStByba8PfOWWluHNxSHGBrCgEdFVLtvdQDBr9LBCF9Uci8SYxh28QNNMO0oC17wbGAg==
+  version "1.4.111"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.111.tgz#897613f6504f3f17c9381c7499a635b413e4df4e"
+  integrity sha512-/s3+fwhKf1YK4k7btOImOzCQLpUjS6MaPf0ODTNuT4eTM1Bg4itBpLkydhOzJmpmH6Z9eXFyuuK5czsmzRzwtw==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -2030,9 +2021,9 @@ http-proxy-agent@^4.0.1:
     debug "4"
 
 https-proxy-agent@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.0.tgz#e2a90542abb68a762e0a0850f6c9edadfd8506b2"
-  integrity sha512-EkYm5BcKUGiduxzSt3Eppko+PiNWNEpa4ySk9vTC6wDsQJW9rHSa+UhGNJoRYp7bz6Ht1eaRIa6QaJqO5rCFbA==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz#c59ef224a04fe8b754f3db0063a25ea30d0005d6"
+  integrity sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==
   dependencies:
     agent-base "6"
     debug "4"
@@ -3358,10 +3349,10 @@ readable-stream@^3.6.0:
     string_decoder "^1.1.1"
     util-deprecate "^1.0.1"
 
-recoil@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.6.1.tgz#6fdf1ba6cb20b5a2e54ec4abcbdaa287e8a03fa2"
-  integrity sha512-J7oT3LZl2vpyFClgSUpOQjpykz84VSX/NJE/PavAtR8n7Z+whEdVBPUtwc2TEWjONeL/lJmiac2XQ+qEOQA52Q==
+recoil@^0.7.1:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.7.2.tgz#37aafc9e0674abae639263354a11c910e71bf78a"
+  integrity sha512-OT4pI7FOUHcIoRtjsL5Lqq+lFFzQfir4MIbUkqyJ3nqv3WfBP1pHepyurqTsK5gw+T+I2R8+uOD28yH+Lg5o4g==
   dependencies:
     hamt_plus "1.0.2"
 
