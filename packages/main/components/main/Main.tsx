@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
-import { ReactElement, useState } from 'react';
+import { ReactElement } from 'react';
 import SliderWrapper from '@main/Slider';
 
 const Main = styled.main`
@@ -43,9 +44,7 @@ const VideoItem = styled.video<VideoItemProps>`
   }
   &:nth-child(7n + 2):nth-child(-7n + 13):hover {
     -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
-    -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
   }
@@ -54,20 +53,6 @@ const VideoItem = styled.video<VideoItemProps>`
 const VideoTitle = styled.div`
   font-size: 28px;
   color: #363636;
-`;
-
-const MainSlider = styled.div`
-  display: flex;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  justify-content: flex-end;
-  position: relative;
-  left: 66px;
-  bottom: 90px;
-  z-index: 2;
 `;
 
 function videoIn(e) {
@@ -98,10 +83,13 @@ function createVideoRow(page) {
 }
 
 function MainWrapper(): ReactElement {
-  const [page, setPage] = useState(0);
+  const page = 0;
   return (
     <Main>
-      <SliderWrapper props={{ title: '*** 님이 시청 중인 콘텐츠' }} />
+      <SliderWrapper
+        title={'*** 님이 시청 중인 콘텐츠'}
+        data={Array.from(Array(14), () => '/video/video1.mp4')}
+      />
       <VideoWrapper>
         <VideoTitle>인기 프로그램</VideoTitle>
         {createVideoRow(page)}

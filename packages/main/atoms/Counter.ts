@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
+import { uuid } from '../utils/common';
 
 export const countState = atom<number>({
-  key: 'countState',
+  key: uuid(),
   default: 0,
 });

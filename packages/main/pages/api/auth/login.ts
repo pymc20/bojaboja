@@ -22,15 +22,14 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         const token = Jwt.sign(
           {
             data,
-            iat: Date.now() * 1,
-            exp: Date.now() * 1 + 600000,
+            iat: Date.now(),
+            exp: Date.now() + 600000,
           },
           process.env.SECRET_KEY,
         );
         const result = aes
           .encrypt(JSON.stringify(token), process.env.SECRET_KEY)
           .toString();
-        res.setHeader;
         if (result) res.status(200).json({ result });
         else res.status(400).json({ result: 'ID OR PASSWORD ERROR' });
       } catch (e) {

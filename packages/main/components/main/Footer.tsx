@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-export type FooterValue = {
+export interface FooterValue {
   copyright: string;
   address: string;
-};
+}
 
 const Footer = styled.footer`
   background: #363636;
@@ -16,7 +16,7 @@ const Footer = styled.footer`
   }
 `;
 
-function FooterWrapper({ props }: { props: FooterValue }): React.ReactElement {
+function FooterWrapper(props: FooterValue): React.ReactElement {
   return (
     <Footer>
       <p>{props.copyright}</p>

@@ -1,5 +1,5 @@
 import Header from '@main/Header';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import MainIndex from './main';
 
 function Home(): ReactElement {

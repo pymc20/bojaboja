@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { MouseEventHandler, useState } from 'react';
 
@@ -52,7 +52,6 @@ const SlideRow = styled.div`
 `;
 
 const RowItem = styled.video<RowProps>`
-  object-fit: cover;
   margin-right: 8px;
   width: 16.2%;
   &:nth-child(${(props) => props.page * props.itemCount + 1}):hover {
@@ -133,15 +132,10 @@ interface SliderWrapperProps extends SliderEventList {
   data?: Array<string>;
 }
 
-function SliderWrapper({
-  props,
-}: {
-  props: SliderWrapperProps;
-}): React.ReactElement {
+function SliderWrapper(props: SliderWrapperProps): React.ReactElement {
   const [page, setPage] = useState(0);
   const [transition, setTransition] = useState('0.5s');
   const [left, setLeft] = useState('');
-  props.data = Array.from(Array(14), () => '/video/video1.mp4');
 
   return (
     <Slider>

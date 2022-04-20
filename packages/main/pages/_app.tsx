@@ -1,3 +1,4 @@
+import React from 'react';
 import Footer from '@components/main/Footer';
 import Head from 'next/head';
 import { useEffect, useState, ReactElement } from 'react';
@@ -38,10 +39,8 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
         <Component {...pageProps} />
       </RecoilRoot>
       <Footer
-        props={{
-          address: '한국',
-          copyright: 'Copyright © 2022 bojaboja. All rights reserved.',
-        }}
+        address={'한국'}
+        copyright={'Copyright © 2022 bojaboja. All rights reserved.'}
       />
     </>
   );
